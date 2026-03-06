@@ -1,0 +1,29 @@
+/* Definições de cores customizadas do Bootstrap */
+:root {
+    --bs-primary: #013369;
+    --bs-primary-rgb: 1, 51, 105;
+    --bs-link-color-rgb: 1, 51, 105;
+}
+
+body {
+    background-color: #f4f7f9;
+}
+
+/* Customização do campo de busca na navbar */
+.navbar .form-control {
+    background-color: #012a5a;
+    border-color: #01234a;
+    color: #fff;
+}
+
+.navbar .form-control::placeholder {
+    color: #ced4da;
+    opacity: 1;
+}
+
+.navbar .form-control:focus {
+    background-color: #012a5a;
+    border-color: #a1c6ff;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5);
+}

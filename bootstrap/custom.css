@@ -1,0 +1,10 @@
+
+body {
+    background-color: #f4f7f9;
+}
+
+:root {
+    --bs-primary: #0056b3;
+    --bs-primary-rgb: 0, 86, 179;
+    --bs-link-color-rgb: 0, 86, 179;
+}
