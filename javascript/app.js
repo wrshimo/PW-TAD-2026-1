@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelectorAll('.btn.btn-success').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the card click event from firing
             const card = btn.closest('.card');
             const priceString = card.querySelector('.card-text').textContent;
             const price = parseFloat(priceString.replace(/[^0-9,-]+/g, "").replace(',', '.'));
@@ -49,5 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 product.style.display = 'block';
             }
         }
+    });
+
+    const productCards = document.querySelectorAll('#product-list .card');
+
+    productCards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Remove .selected class from all product cards
+            productCards.forEach(c => c.classList.remove('selected'));
+            // Add .selected class to the clicked card
+            card.classList.add('selected');
+        });
     });
 });
