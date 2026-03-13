@@ -1,52 +1,98 @@
 [
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 1",
-    "preco": "R$ 150,00"
+    "imagem": "https://placehold.co/400x400?text=Smartphone",
+    "nome": "Smartphone Samsung Galaxy S23",
+    "preco": "R$ 3.599,00",
+    "categoria": "Eletrônicos"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 2",
-    "preco": "R$ 200,00"
+    "imagem": "https://placehold.co/400x400?text=Fone+de+Ouvido",
+    "nome": "Fone de Ouvido Sony WH-1000XM5",
+    "preco": "R$ 2.499,00",
+    "categoria": "Eletrônicos"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 3",
-    "preco": "R$ 75,00"
+    "imagem": "https://placehold.co/400x400?text=Smartwatch",
+    "nome": "Smartwatch Apple Watch Series 9",
+    "preco": "R$ 4.199,00",
+    "categoria": "Eletrônicos"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 4",
-    "preco": "R$ 300,00"
+    "imagem": "https://placehold.co/400x400?text=Notebook",
+    "nome": "Notebook Dell Inspiron 15",
+    "preco": "R$ 3.899,00",
+    "categoria": "Eletrônicos"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 5",
-    "preco": "R$ 50,00"
+    "imagem": "https://placehold.co/400x400?text=Teclado",
+    "nome": "Teclado Mecânico Gamer Logitech",
+    "preco": "R$ 699,90",
+    "categoria": "Eletrônicos"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 6",
-    "preco": "R$ 120,00"
+    "imagem": "https://placehold.co/400x400?text=Camiseta",
+    "nome": "Camiseta Básica de Algodão",
+    "preco": "R$ 49,90",
+    "categoria": "Roupas"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 7",
-    "preco": "R$ 180,00"
+    "imagem": "https://placehold.co/400x400?text=Calça+Jeans",
+    "nome": "Calça Jeans Masculina Slim",
+    "preco": "R$ 149,90",
+    "categoria": "Roupas"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 8",
-    "preco": "R$ 90,00"
+    "imagem": "https://placehold.co/400x400?text=Jaqueta",
+    "nome": "Jaqueta de Couro Sintético Feminina",
+    "preco": "R$ 249,90",
+    "categoria": "Roupas"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 9",
-    "preco": "R$ 250,00"
+    "imagem": "https://placehold.co/400x400?text=Tênis",
+    "nome": "Tênis Esportivo Corrida Unissex",
+    "preco": "R$ 349,90",
+    "categoria": "Roupas"
   },
   {
-    "imagem": "https://placehold.co/150x150",
-    "nome": "Produto 10",
-    "preco": "R$ 100,00"
+    "imagem": "https://placehold.co/400x400?text=Vestido",
+    "nome": "Vestido Midi Floral",
+    "preco": "R$ 199,90",
+    "categoria": "Roupas"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Livro",
+    "nome": "Livro: O Senhor dos Anéis - Box Completo",
+    "preco": "R$ 189,90",
+    "categoria": "Livros"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Livro",
+    "nome": "Livro: 1984 - George Orwell",
+    "preco": "R$ 39,90",
+    "categoria": "Livros"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Livro",
+    "nome": "Livro: O Pequeno Príncipe",
+    "preco": "R$ 29,90",
+    "categoria": "Livros"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Jardinagem",
+    "nome": "Kit Ferramentas de Jardinagem 10 Peças",
+    "preco": "R$ 129,90",
+    "categoria": "Casa e Jardim"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Cadeira",
+    "nome": "Cadeira de Escritório Ergonômica",
+    "preco": "R$ 899,90",
+    "categoria": "Casa e Jardim"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Aspirador",
+    "nome": "Aspirador de Pó Robô Inteligente",
+    "preco": "R$ 1.299,00",
+    "categoria": "Casa e Jardim"
   }
 ]
