@@ -62,4 +62,33 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.add('selected');
         });
     });
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('nome');
+            const emailInput = document.getElementById('email');
+            const messageDiv = document.getElementById('form-message');
+
+            // Clear previous messages
+            messageDiv.innerHTML = '';
+            messageDiv.classList.remove('alert', 'alert-danger', 'alert-success');
+
+            if (nameInput.value.trim() === '' || emailInput.value.trim() === '') {
+                messageDiv.textContent = 'Preencha todos os campos!';
+                messageDiv.classList.add('alert', 'alert-danger');
+            } else {
+                messageDiv.textContent = 'Enviado com sucesso!';
+                messageDiv.classList.add('alert', 'alert-success');
+                contactForm.reset();
+            }
+
+            setTimeout(() => {
+                messageDiv.innerHTML = '';
+                messageDiv.classList.remove('alert', 'alert-danger', 'alert-success');
+            }, 3000);
+        });
+    }
 });

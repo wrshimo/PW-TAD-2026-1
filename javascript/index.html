@@ -23,7 +23,8 @@
                         <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/produtos">Produtos</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Categorias
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,9 +41,11 @@
                         <button class="btn btn-outline-light" type="submit">Buscar</button>
                     </form>
                     <div class="d-flex ms-3">
-                        <a href="#" class="text-white text-decoration-none" id="cart-icon" data-bs-toggle="popover" data-bs-placement="bottom" title="Carrinho" data-bs-content="">
+                        <a href="#" class="text-white text-decoration-none" id="cart-icon" data-bs-toggle="popover"
+                            data-bs-placement="bottom" title="Carrinho" data-bs-content="">
                             <i class="bi bi-cart fs-4"></i>
-                            <span id="cart-count" class="badge rounded-pill bg-danger position-absolute translate-middle">0</span>
+                            <span id="cart-count"
+                                class="badge rounded-pill bg-danger position-absolute translate-middle">0</span>
                         </a>
                     </div>
                 </div>
@@ -64,7 +67,8 @@
                         </div>
                     </div>
                 </form>
-                <section id="product-list" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
+                <section id="product-list"
+                    class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
                     <div class="col">
                         <div class="card h-100 shadow-sm">
                             <img src="https://placehold.co/150x150" class="card-img-top" alt="...">
@@ -175,6 +179,16 @@
                             </div>
                         </div>
                     </div>
+                </section>
+                <hr>
+                <section id="cadastro" class="mt-5">
+                    <h2>Cadastro</h2>
+                    <form id="contact-form">
+                        <input type="text" id="nome" placeholder="Nome" class="form-control mb-2">
+                        <input type="email" id="email" placeholder="E-mail" class="form-control mb-2">
+                        <button type="submit" class="btn btn-success">Enviar</button>
+                    </form>
+                    <div id="form-message" class="mt-2"></div>
                 </section>
             </main>
         </div>
