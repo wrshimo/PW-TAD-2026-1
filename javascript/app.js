@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let cartCount = 0;
-    let cartTotal = 0;
+    // Carrega o carrinho do localStorage ou inicializa com valores padrão
+    let cartCount = parseInt(localStorage.getItem('cartCount')) || 0;
+    let cartTotal = parseFloat(localStorage.getItem('cartTotal')) || 0;
 
     const cartIcon = document.getElementById('cart-icon');
     const cartCountElement = document.getElementById('cart-count');
@@ -16,8 +17,25 @@ document.addEventListener('DOMContentLoaded', () => {
         content: 'Seu carrinho está vazio.'
     });
 
+    // Função para salvar o estado do carrinho no localStorage
+    function saveCart() {
+        localStorage.setItem('cartCount', cartCount);
+        localStorage.setItem('cartTotal', cartTotal);
+    }
+
+    // Função para atualizar a exibição do carrinho na interface
+    function updateCartDisplay() {
+        cartCountElement.textContent = cartCount;
+        const formattedTotal = cartTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        const popoverContent = cartCount > 0 ? `Total: <strong>${formattedTotal}</strong>` : 'Seu carrinho está vazio.';
+        
+        popover.setContent({
+            '.popover-body': popoverContent
+        });
+    }
+
     function renderCards(products) {
-        productList.innerHTML = ''; // Limpa a lista de produtos existente
+        productList.innerHTML = '';
         products.forEach(product => {
             const card = `
                 <div class="col">
@@ -34,8 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             productList.innerHTML += card;
         });
-
-        // Re-anexa os event listeners aos botões "Comprar" e aos cards
         attachEventListeners();
     }
 
@@ -50,12 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!isNaN(price)) {
                     cartCount++;
                     cartTotal += price;
-                    cartCountElement.textContent = cartCount;
-
-                    const formattedTotal = cartTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                    popover.setContent({
-                        '.popover-body': `Total: <strong>${formattedTotal}</strong>`
-                    });
+                    saveCart(); // Salva o carrinho no localStorage
+                    updateCartDisplay(); // Atualiza a exibição
                 }
             });
         });
@@ -75,10 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
             renderCards(data);
         });
 
-
     filterBtn.addEventListener('click', () => {
         const maxPrice = parseFloat(priceFilter.value);
-
         fetch('produtos.json')
             .then(response => response.json())
             .then(data => {
@@ -94,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
             const nameInput = document.getElementById('nome');
             const emailInput = document.getElementById('email');
             const messageDiv = document.getElementById('form-message');
@@ -117,4 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         });
     }
+
+    // Atualiza a exibição do carrinho ao carregar a página
+    updateCartDisplay();
 });
