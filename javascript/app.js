@@ -16,51 +16,78 @@ document.addEventListener('DOMContentLoaded', () => {
         content: 'Seu carrinho está vazio.'
     });
 
-    document.querySelectorAll('.btn.btn-success').forEach(btn => {
-        btn.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent the card click event from firing
-            const card = btn.closest('.card');
-            const priceString = card.querySelector('.card-text').textContent;
-            const price = parseFloat(priceString.replace(/[^0-9,-]+/g, "").replace(',', '.'));
-
-            if (!isNaN(price)) {
-                cartCount++;
-                cartTotal += price;
-
-                cartCountElement.textContent = cartCount;
-
-                const formattedTotal = cartTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                popover.setContent({
-                    '.popover-body': `Total: <strong>${formattedTotal}</strong>`
-                });
-            }
+    function renderCards(products) {
+        productList.innerHTML = ''; // Limpa a lista de produtos existente
+        products.forEach(product => {
+            const card = `
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="${product.imagem}" class="card-img-top" alt="${product.nome}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.nome}</h5>
+                            <p class="card-text">${product.preco}</p>
+                            <button class="btn btn-primary">Detalhes</button>
+                            <button class="btn btn-success">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            productList.innerHTML += card;
         });
-    });
+
+        // Re-anexa os event listeners aos botões "Comprar" e aos cards
+        attachEventListeners();
+    }
+
+    function attachEventListeners() {
+        document.querySelectorAll('#product-list .btn-success').forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const card = btn.closest('.card');
+                const priceString = card.querySelector('.card-text').textContent;
+                const price = parseFloat(priceString.replace(/[^0-9,-]+/g, "").replace(',', '.'));
+
+                if (!isNaN(price)) {
+                    cartCount++;
+                    cartTotal += price;
+                    cartCountElement.textContent = cartCount;
+
+                    const formattedTotal = cartTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                    popover.setContent({
+                        '.popover-body': `Total: <strong>${formattedTotal}</strong>`
+                    });
+                }
+            });
+        });
+
+        const productCards = document.querySelectorAll('#product-list .card');
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                productCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+            });
+        });
+    }
+
+    fetch('produtos.json')
+        .then(response => response.json())
+        .then(data => {
+            renderCards(data);
+        });
+
 
     filterBtn.addEventListener('click', () => {
         const maxPrice = parseFloat(priceFilter.value);
 
-        for (const product of productList.children) {
-            const priceString = product.querySelector('.card-text').textContent;
-            const price = parseFloat(priceString.replace(/[^0-9,-]+/g, "").replace(',', '.'));
-
-            if (!isNaN(maxPrice) && price > maxPrice) {
-                product.style.display = 'none';
-            } else {
-                product.style.display = 'block';
-            }
-        }
-    });
-
-    const productCards = document.querySelectorAll('#product-list .card');
-
-    productCards.forEach(card => {
-        card.addEventListener('click', () => {
-            // Remove .selected class from all product cards
-            productCards.forEach(c => c.classList.remove('selected'));
-            // Add .selected class to the clicked card
-            card.classList.add('selected');
-        });
+        fetch('produtos.json')
+            .then(response => response.json())
+            .then(data => {
+                const filteredProducts = data.filter(product => {
+                    const price = parseFloat(product.preco.replace(/[^0-9,-]+/g, "").replace(',', '.'));
+                    return isNaN(maxPrice) || price <= maxPrice;
+                });
+                renderCards(filteredProducts);
+            });
     });
 
     const contactForm = document.getElementById('contact-form');
@@ -72,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const emailInput = document.getElementById('email');
             const messageDiv = document.getElementById('form-message');
 
-            // Clear previous messages
             messageDiv.innerHTML = '';
             messageDiv.classList.remove('alert', 'alert-danger', 'alert-success');
 

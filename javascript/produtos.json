@@ -1,0 +1,52 @@
+[
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 1",
+    "preco": "R$ 150,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x100",
+    "nome": "Produto 2",
+    "preco": "R$ 200,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 3",
+    "preco": "R$ 75,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 4",
+    "preco": "R$ 300,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 5",
+    "preco": "R$ 50,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 6",
+    "preco": "R$ 120,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 7",
+    "preco": "R$ 180,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 8",
+    "preco": "R$ 90,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 9",
+    "preco": "R$ 250,00"
+  },
+  {
+    "imagem": "https://placehold.co/150x150",
+    "nome": "Produto 10",
+    "preco": "R$ 100,00"
+  }
+]
