@@ -94,5 +94,23 @@
     "nome": "Aspirador de Pó Robô Inteligente",
     "preco": "R$ 1.299,00",
     "categoria": "Casa e Jardim"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Mouse+Gamer",
+    "nome": "Mouse Gamer RGB 12000 DPI",
+    "preco": "R$ 259,90",
+    "categoria": "Eletrônicos"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Cafeteira",
+    "nome": "Cafeteira Elétrica Programável",
+    "preco": "R$ 449,00",
+    "categoria": "Casa e Jardim"
+  },
+  {
+    "imagem": "https://placehold.co/400x400?text=Moletom",
+    "nome": "Moletom Canguru com Capuz",
+    "preco": "R$ 129,90",
+    "categoria": "Roupas"
   }
 ]

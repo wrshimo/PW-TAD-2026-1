@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmModal = new bootstrap.Modal(document.getElementById('confirm-clear-cart-modal'));
     const tooltip = new bootstrap.Tooltip(clearCartBtn);
 
-
     // --- FUNÇÕES DO CARRINHO ---
     // Salva o estado atual do carrinho (quantidade e total) no Local Storage.
     function saveCart() {
@@ -80,6 +79,22 @@ document.addEventListener('DOMContentLoaded', () => {
             productList.innerHTML += card; // Adiciona o novo cartão de produto à lista.
         });
         attachProductEventListeners(); // Adiciona os ouvintes de eventos aos novos botões.
+
+        selectCard(); // Permite selecionar os produtos
+    }
+
+    // --- SELECIONAR PRODUTO ---
+    function selectCard() {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Limpa anteriores
+                cards.forEach(c => c.classList.remove('selected'));
+
+                // Aplica no atual
+                card.classList.add('selected');
+            });
+        });
     }
 
     // Adiciona ouvintes de eventos de clique aos botões "Comprar".
@@ -141,14 +156,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CARGA INICIAL DE DADOS E CONFIGURAÇÃO DE EVENTOS ---
     // Busca os dados dos produtos do arquivo JSON.
-    fetch('produtos.json')
-        .then(response => response.json())
-        .then(data => {
-            allProducts = data; // Armazena todos os produtos na variável de estado.
-            applyFilters(); // Renderiza os produtos na página pela primeira vez.
-        });
+    function loadFromJson() {
+        fetch('produtos.json')
+            .then(response => response.json())
+            .then(data => {
+                allProducts = data; // Armazena todos os produtos na variável de estado.
+                applyFilters(); // Renderiza os produtos na página pela primeira vez.
+            });
+    }
 
     // Adiciona ouvintes de eventos aos elementos de filtro e ordenação.
+    loadFromJson();
     nameSearch.addEventListener('input', applyFilters);
     filterBtn.addEventListener('click', applyFilters);
     sortOrder.addEventListener('change', applyFilters);
@@ -201,4 +219,51 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- EXIBIÇÃO INICIAL DO CARRINHO ---
     // Atualiza a exibição do carrinho assim que a página é carregada.
     updateCartDisplay();
+
+    // --- PROMOÇÃO DO DIA ---
+    function promotionOfDay() {
+        const date = new Date();
+        const dayOfWeek = date.getDay(); // Dia da Semana
+
+        switch (dayOfWeek) {
+            case 1: // Seguda-feira
+                return { title: 'Segunda Tech', desc: '10% OFF' };
+            case 4: // Quinta-feira
+                return { title: 'Quinta do Look', desc: '30% OFF na segunda peça' };
+            default:
+                return { title: 'Promoção do Dia', desc: 'Nenhuma promoção disponível' };
+        }
+    }
+
+    const promo = promotionOfDay();
+    document.getElementById('promo-title').textContent = promo.title;
+    document.getElementById('promo-desc').textContent = promo.desc;
+
+    // --- GERADOR DE PRODUTOS FAKE ---
+    function generateFakeProducts(n) {
+        const produtos = [];
+        for (let i = 1; i <= n; i++) {
+            produtos.push({
+                nome: `Produto ${i}`,
+                preco: `R$ ${(Math.random() * 5000).toFixed(2)}`,
+                imagem: `https://placehold.co/400x400?text=${i}`,
+                categoria: i % 2 === 0 ? 'Eletrônicos' : 'Roupas'
+            });
+        }
+        return produtos;
+    }
+
+    document.getElementById('generate-fake-btn')
+        .addEventListener('click', () => {
+            const n = document.getElementById('fake-count').value;
+            allProducts = generateFakeProducts(n);
+            renderCards(allProducts);
+        });
+
+    // --- RECARREGA DADOS A PARTIR DO JSON ---
+    document.getElementById('load-from-json-btn')
+        .addEventListener('click', () => {
+            loadFromJson();
+            renderCards(allProducts);
+        });
 });
