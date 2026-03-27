@@ -29,10 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // =====================================================
     const popover = new bootstrap.Popover(cartIcon, {
       html: true,
-      trigger: 'hover focus',
+      trigger: 'click', // Alterado para 'click' para melhor usabilidade
       placement: 'bottom',
       title: 'Resumo do Carrinho',
-      content: 'Seu carrinho está vazio.'
+      content: 'Seu carrinho está vazio.',
+      sanitize: false, // Permite HTML customizado (botões)
+      customClass: 'cart-popover', // Adiciona classe customizada para CSS
     });
     const confirmModal = new bootstrap.Modal(
       document.getElementById('confirm-clear-cart-modal')
@@ -137,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .map(
           (item) => `
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <div style="max-width:220px">
+              <div style="max-width:220px; overflow-wrap: break-word;">
                 <div class="fw-semibold" style="font-size:0.9rem">${item.nome}</div>
                 <div class="text-muted" style="font-size:0.8rem">${item.qty} × ${formatPriceBRL(item.preco)}</div>
               </div>
@@ -150,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .join('');
   
       return `
-        <div style="min-width:300px">
+        <div>
           ${itemsHtml}
           <hr class="my-2" />
           <div class="d-flex justify-content-between">
@@ -269,6 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // =====================================================
     // 8) Eventos (addEventListener)
     // =====================================================
+
+    // Garante que o popover seja atualizado sempre antes de ser exibido.
+    cartIcon.addEventListener('show.bs.popover', updateCartDisplay);
   
     nameSearch.addEventListener('input', applyFilters);
     filterBtn.addEventListener('click', applyFilters);
@@ -416,4 +421,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // =====================================================
   
     updateCartDisplay();
-  });  
+  });

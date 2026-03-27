@@ -27,3 +27,12 @@ body {
     color: #fff;
     box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5);
 }
+
+/* Aumenta a largura máxima do popover do carrinho */
+.cart-popover {
+    --bs-popover-max-width: 400px; /* O padrão é 276px */
+}
+
+.cart-popover .popover-body {
+    min-width: 350px; /* Garante espaço para o conteúdo */
+}
