@@ -1,116 +1,154 @@
 [
   {
+    "id": 1,
     "imagem": "https://placehold.co/400x400?text=Smartphone",
     "nome": "Smartphone Samsung Galaxy S23",
     "preco": "R$ 3.599,00",
-    "categoria": "Eletrônicos"
+    "categoria": "Eletrônicos",
+    "descricao": "Eletrônicos: Smartphone Samsung Galaxy S23. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
-    "imagem": "https://placehold.co/400x400?text=Fone+de+Ouvido",
+    "id": 2,
+    "imagem": "https://placehold.co/400x400?text=Fone",
     "nome": "Fone de Ouvido Sony WH-1000XM5",
     "preco": "R$ 2.499,00",
-    "categoria": "Eletrônicos"
+    "categoria": "Eletrônicos",
+    "descricao": "Eletrônicos: Fone de Ouvido Sony WH-1000XM5. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 3,
     "imagem": "https://placehold.co/400x400?text=Smartwatch",
     "nome": "Smartwatch Apple Watch Series 9",
     "preco": "R$ 4.199,00",
-    "categoria": "Eletrônicos"
+    "categoria": "Eletrônicos",
+    "descricao": "Eletrônicos: Smartwatch Apple Watch Series 9. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 4,
     "imagem": "https://placehold.co/400x400?text=Notebook",
     "nome": "Notebook Dell Inspiron 15",
     "preco": "R$ 3.899,00",
-    "categoria": "Eletrônicos"
+    "categoria": "Eletrônicos",
+    "descricao": "Eletrônicos: Notebook Dell Inspiron 15. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 5,
     "imagem": "https://placehold.co/400x400?text=Teclado",
     "nome": "Teclado Mecânico Gamer Logitech",
     "preco": "R$ 699,90",
-    "categoria": "Eletrônicos"
+    "categoria": "Eletrônicos",
+    "descricao": "Eletrônicos: Teclado Mecânico Gamer Logitech. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 6,
     "imagem": "https://placehold.co/400x400?text=Camiseta",
     "nome": "Camiseta Básica de Algodão",
     "preco": "R$ 49,90",
-    "categoria": "Roupas"
+    "categoria": "Roupas",
+    "descricao": "Roupas: Camiseta Básica de Algodão. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
-    "imagem": "https://placehold.co/400x400?text=Calça+Jeans",
+    "id": 7,
+    "imagem": "https://placehold.co/400x400?text=Calca",
     "nome": "Calça Jeans Masculina Slim",
     "preco": "R$ 149,90",
-    "categoria": "Roupas"
+    "categoria": "Roupas",
+    "descricao": "Roupas: Calça Jeans Masculina Slim. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 8,
     "imagem": "https://placehold.co/400x400?text=Jaqueta",
     "nome": "Jaqueta de Couro Sintético Feminina",
     "preco": "R$ 249,90",
-    "categoria": "Roupas"
+    "categoria": "Roupas",
+    "descricao": "Roupas: Jaqueta de Couro Sintético Feminina. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
-    "imagem": "https://placehold.co/400x400?text=Tênis",
+    "id": 9,
+    "imagem": "https://placehold.co/400x400?text=Tenis",
     "nome": "Tênis Esportivo Corrida Unissex",
     "preco": "R$ 349,90",
-    "categoria": "Roupas"
+    "categoria": "Roupas",
+    "descricao": "Roupas: Tênis Esportivo Corrida Unissex. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 10,
     "imagem": "https://placehold.co/400x400?text=Vestido",
     "nome": "Vestido Midi Floral",
     "preco": "R$ 199,90",
-    "categoria": "Roupas"
+    "categoria": "Roupas",
+    "descricao": "Roupas: Vestido Midi Floral. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 11,
     "imagem": "https://placehold.co/400x400?text=Livro",
     "nome": "Livro: O Senhor dos Anéis - Box Completo",
     "preco": "R$ 189,90",
-    "categoria": "Livros"
+    "categoria": "Livros",
+    "descricao": "Livros: Livro: O Senhor dos Anéis - Box Completo. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 12,
     "imagem": "https://placehold.co/400x400?text=Livro",
     "nome": "Livro: 1984 - George Orwell",
     "preco": "R$ 39,90",
-    "categoria": "Livros"
+    "categoria": "Livros",
+    "descricao": "Livros: Livro: 1984 - George Orwell. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 13,
     "imagem": "https://placehold.co/400x400?text=Livro",
     "nome": "Livro: O Pequeno Príncipe",
     "preco": "R$ 29,90",
-    "categoria": "Livros"
+    "categoria": "Livros",
+    "descricao": "Livros: Livro: O Pequeno Príncipe. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
-    "imagem": "https://placehold.co/400x400?text=Jardinagem",
+    "id": 14,
+    "imagem": "https://placehold.co/400x400?text=Kit",
     "nome": "Kit Ferramentas de Jardinagem 10 Peças",
     "preco": "R$ 129,90",
-    "categoria": "Casa e Jardim"
+    "categoria": "Casa e Jardim",
+    "descricao": "Casa e Jardim: Kit Ferramentas de Jardinagem 10 Peças. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 15,
     "imagem": "https://placehold.co/400x400?text=Cadeira",
     "nome": "Cadeira de Escritório Ergonômica",
     "preco": "R$ 899,90",
-    "categoria": "Casa e Jardim"
+    "categoria": "Casa e Jardim",
+    "descricao": "Casa e Jardim: Cadeira de Escritório Ergonômica. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 16,
     "imagem": "https://placehold.co/400x400?text=Aspirador",
     "nome": "Aspirador de Pó Robô Inteligente",
     "preco": "R$ 1.299,00",
-    "categoria": "Casa e Jardim"
+    "categoria": "Casa e Jardim",
+    "descricao": "Casa e Jardim: Aspirador de Pó Robô Inteligente. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
-    "imagem": "https://placehold.co/400x400?text=Mouse+Gamer",
+    "id": 17,
+    "imagem": "https://placehold.co/400x400?text=Mouse",
     "nome": "Mouse Gamer RGB 12000 DPI",
     "preco": "R$ 259,90",
-    "categoria": "Eletrônicos"
+    "categoria": "Eletrônicos",
+    "descricao": "Eletrônicos: Mouse Gamer RGB 12000 DPI. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 18,
     "imagem": "https://placehold.co/400x400?text=Cafeteira",
     "nome": "Cafeteira Elétrica Programável",
     "preco": "R$ 449,00",
-    "categoria": "Casa e Jardim"
+    "categoria": "Casa e Jardim",
+    "descricao": "Casa e Jardim: Cafeteira Elétrica Programável. Produto demonstrativo para o laboratório de DOM e eventos."
   },
   {
+    "id": 19,
     "imagem": "https://placehold.co/400x400?text=Moletom",
     "nome": "Moletom Canguru com Capuz",
     "preco": "R$ 129,90",
-    "categoria": "Roupas"
+    "categoria": "Roupas",
+    "descricao": "Roupas: Moletom Canguru com Capuz. Produto demonstrativo para o laboratório de DOM e eventos."
   }
 ]
