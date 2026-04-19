@@ -9,6 +9,13 @@
   ];
   # Sets environment variables in the workspace
   env = {};
+
+  # Banco de dados
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
