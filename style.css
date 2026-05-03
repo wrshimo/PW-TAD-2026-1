@@ -1,38 +1,34 @@
-/* Definições de cores customizadas do Bootstrap */
 :root {
-    --bs-primary: #013369;
-    --bs-primary-rgb: 1, 51, 105;
-    --bs-link-color-rgb: 1, 51, 105;
+    --azul-escuro: #0b2a5b;
+    --azul: #1d5fbf;
+    --azul-claro: #dce9ff;
 }
 
-body {
-    background-color: #f4f7f9;
+.selected {
+    border: 2px solid var(--azul);
 }
 
-/* Customização do campo de busca na navbar */
-.navbar .form-control {
-    background-color: #012a5a;
-    border-color: #01234a;
-    color: #fff;
+.product-details {
+    display: none;
+    font-size: 0.9rem;
+    color: --azul-escuro;
 }
 
-.navbar .form-control::placeholder {
-    color: #ced4da;
-    opacity: 1;
+.product-details.is-open {
+    display: block;
 }
 
-.navbar .form-control:focus {
-    background-color: #012a5a;
-    border-color: #a1c6ff;
-    color: #fff;
-    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5);
+.card .btn-primary {
+    background: var(--azul-escuro);
+    border-color: var(--azul-escuro);
 }
 
-/* Aumenta a largura máxima do popover do carrinho */
-.cart-popover {
-    --bs-popover-max-width: 400px; /* O padrão é 276px */
+.card .btn-outline-primary {
+    color: var(--azul-escuro);
+    border-color: var(--azul-escuro);
 }
 
-.cart-popover .popover-body {
-    min-width: 350px; /* Garante espaço para o conteúdo */
+.card .btn-outline-primary:hover {
+    background: var(--azul-escuro);
+    border-color: var(--azul-escuro);
 }

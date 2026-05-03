@@ -251,22 +251,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // =====================================================
     // 7) Carregamento inicial (fetch + map)
     // =====================================================
-  
-    function loadFromJson() {
-      fetch('/javascript/produtos.json')
-        .then((response) => response.json())
-        .then((data) => {
-          // transforma preço string -> number
-          allProducts = data.map((p) => ({
+    function processAndRenderProducts(products) {
+        allProducts = products.map((p) => ({
             ...p,
             preco: typeof p.preco === 'string' ? parsePriceBRL(p.preco) : p.preco
-          }));
+        }));
+        applyFilters();
+    }
+
+    function loadFromInitialData() {
+        if (typeof initialProducts !== 'undefined' && initialProducts.length > 0) {
+            processAndRenderProducts(initialProducts);
+        } else {
+            // Fallback para JSON se os dados iniciais não estiverem disponíveis
+            loadFromJson();
+        }
+    }
   
-          applyFilters();
+    function loadFromJson() {
+      fetch('javascript/produtos.json')
+        .then((response) => response.json())
+        .then((data) => {
+          processAndRenderProducts(data);
         });
     }
   
-    loadFromJson();
+    loadFromInitialData();
   
     // =====================================================
     // 8) Eventos (addEventListener)

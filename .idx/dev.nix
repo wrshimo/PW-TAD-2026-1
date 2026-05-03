@@ -29,6 +29,7 @@
       # Runs when a workspace is (re)started
       onStart= {
         run-server = "php -S 127.0.0.1:3000 -t ./";
+        run-phpMyAdmin = "php -S localhost:3001 -t phpMyAdmin/";
       };
     };
   };
