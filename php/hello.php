@@ -7,9 +7,13 @@
 </head>
 <body>
     <?php
-        echo "<h1>Olá, Mundo!</h1>";
+        $nome = "Mundo";
+        if (isset($_GET['nome'])) {
+            $nome = $_GET['nome'];
+        }
+
+        echo "<h1>Olá, $nome!</h1>";
         
-        $nome = "Shimo";
         var_dump($nome);
         echo "<p>Olá, " . $nome . "</p>";
     ?>

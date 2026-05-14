@@ -2,7 +2,7 @@
   {
     "id": 1,
     "imagem": "https://placehold.co/400x400?text=Smartphone",
-    "nome": "Smartphone Samsung Galaxy S23",
+    "nome": "Smartphone Samsung Galaxy S23 - JSON",
     "preco": "R$ 3.599,00",
     "categoria": "Eletrônicos",
     "descricao": "Eletrônicos: Smartphone Samsung Galaxy S23. Produto demonstrativo para o laboratório de DOM e eventos."

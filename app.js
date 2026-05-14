@@ -259,24 +259,18 @@ document.addEventListener('DOMContentLoaded', () => {
         applyFilters();
     }
 
-    function loadFromInitialData() {
-        if (typeof initialProducts !== 'undefined' && initialProducts.length > 0) {
-            processAndRenderProducts(initialProducts);
-        } else {
-            // Fallback para JSON se os dados iniciais não estiverem disponíveis
-            loadFromJson();
-        }
-    }
-  
-    function loadFromJson() {
-      fetch('javascript/produtos.json')
-        .then((response) => response.json())
-        .then((data) => {
-          processAndRenderProducts(data);
+    function loadFromApi() {
+      fetch('/api/produtos.php')
+        .then((r) => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(processAndRenderProducts)
+        .catch((err) => {
+          console.warn('API indisponível', err);
+          // Exibir fallback de erro ou carregar JSON estático
         });
     }
-  
-    loadFromInitialData();
   
     // =====================================================
     // 8) Eventos (addEventListener)
@@ -422,8 +416,8 @@ document.addEventListener('DOMContentLoaded', () => {
       applyFilters();
     });
   
-    document.getElementById('load-from-json-btn').addEventListener('click', () => {
-      loadFromJson();
+    document.getElementById('load-from-api-btn').addEventListener('click', () => {
+      loadFromApi();
     });
   
     // =====================================================
@@ -431,4 +425,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // =====================================================
   
     updateCartDisplay();
+
+    loadFromApi();
   });

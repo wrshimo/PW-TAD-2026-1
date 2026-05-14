@@ -17,7 +17,7 @@ $options = [
 ];
 
 try {
-    return new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
     // Lança a exceção para que o código que chama possa tratá-la
     throw new PDOException($e->getMessage(), (int) $e->getCode());
