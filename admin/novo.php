@@ -29,7 +29,7 @@ render_header('admin');
       </div>
       <div class="col-md-6">
         <label class="form-label">URL da imagem</label>
-        <input class="form-control" name="imagem" placeholder="https://..." required>
+        <input class="form-control" type="url" name="imagem" placeholder="https://..." required>
       </div>
       <div class="col-12">
         <label class="form-label">Descrição</label>
