@@ -48,7 +48,16 @@ function render_header(string $active = 'home'): void {
           </li>
 
           <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
-          <li class="nav-item"><a class="nav-link <?= $isAdmin ?>" href="/admin/">Admin</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link <?= $isAdmin ?> dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/admin/">Produtos</a></li>
+              <li><div class="dropdown-divider"></div></li>
+              <li><a class="dropdown-item" href="/admin/logout.php">Logout</a></li>
+            </ul>
+          </li>
         </ul>
 
         <form class="d-flex" role="search" onsubmit="return false;">
@@ -67,6 +76,17 @@ function render_header(string $active = 'home'): void {
       </div>
     </div>
   </nav>
+
+  <!-- BLOCO DE MENSAGENS FLASH -->
+  <div class="container mt-3">
+    <?php if (isset($_SESSION['flash'])): 
+        $f = $_SESSION['flash']; ?>
+        <div class="alert alert-<?= $f['tipo'] ?> alert-dismissible fade show" role="alert">
+            <?= $f['msg'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php unset($_SESSION['flash']); endif; ?>
+  </div>
 </header>
 <?php
 }

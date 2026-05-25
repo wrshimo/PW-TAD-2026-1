@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const alertBox = document.getElementById('form-alert');
   
     function showAlert(type, message) {
-      alertBox.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+      alertBox.innerHTML = `<div class="container mt-3"><div class="alert alert-${type} alert-dismissible fade show" role="alert">${message}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div></div>`;
     }
   
     function fillForm(produto) {
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (k === 'id') continue;
             params.append(k, String(v));
           }
-  
+
           const r = await fetch(`/api/produtos.php?id=${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
   
       } catch (err) {
-        console.error(err);
-        showAlert('danger', 'Falha ao salvar. Verifique os campos e tente novamente.');
+        console.error(err.message);
+        showAlert('danger', 'Falha ao salvar. ' + err.message);
       }
     });
   });

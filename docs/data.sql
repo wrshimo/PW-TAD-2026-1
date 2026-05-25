@@ -20,3 +20,10 @@ INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco`, `imagem`, `categoria
 (17, 'Mouse Gamer RGB 12000 DPI', 'Eletrônicos: Mouse Gamer RGB 12000 DPI. Produto demonstrativo para o laboratório de DOM e eventos.', 259.90, 'https://placehold.co/400x400?text=Mouse', 'Eletrônicos'),
 (18, 'Cafeteira Elétrica Programável', 'Casa e Jardim: Cafeteira Elétrica Programável. Produto demonstrativo para o laboratório de DOM e eventos.', 449.00, 'https://placehold.co/400x400?text=Cafeteira', 'Casa e Jardim'),
 (19, 'Moletom Canguru com Capuz', 'Roupas: Moletom Canguru com Capuz. Produto demonstrativo para o laboratório de DOM e eventos.', 129.90, 'https://placehold.co/400x400?text=Moletom', 'Roupas');
+
+INSERT INTO usuarios (nome, usuario, senha)
+VALUES (
+  'Administrador',
+  'admin',
+  '$2y$10$LR1AP8ImaWXgVpYbVKkeJ.VC4ae/UI6iBaXb31htSJGNJE8cdCN2K'
+);

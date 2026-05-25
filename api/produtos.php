@@ -9,7 +9,18 @@ require_once __DIR__ . '/../includes/http_json.php';
 // PUT  /api/produtos.php?id=1       -> atualiza (campos via body)
 // DELETE /api/produtos.php?id=1     -> exclui
 
+session_start();
+
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+
+// Protege métodos de alteração
+if (in_array($method, ['POST', 'PUT', 'DELETE'])) {
+  if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+      http_response_code(401);
+      echo json_encode(['erro' => 'Autenticação necessária']);
+      exit;
+  }
+}
 
 try {
   if ($method === 'GET') {
@@ -122,7 +133,7 @@ try {
     ]);
 
     // 3. Confirmando a alteração
-    if ($stmt->affectedRows() === 0) {
+    if ($stmt->rowCount() === 0) {
       // Retorna sucesso para UX pois o usuário pode ter salvo sem mudar valores reais
       json_response(['message' => 'Nenhuma alteração detectada', 'id' => $id]);
     }
