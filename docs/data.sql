@@ -1,3 +1,8 @@
+INSERT INTO `clientes` (nome, email, cidade) VALUES 
+('Ana Souza', 'ana@email.com', 'Cuiabá'),
+('Bruno Lima', 'bruno@email.com', 'Várzea Grande'),
+('Carla Dias', 'carla@email.com', 'Rondonópolis'),
+('Daniel Oliveira', 'daniel@email.com', 'Cáceres');
 
 -- Inserção de dados na tabela `produtos`
 INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco`, `imagem`, `categoria`) VALUES

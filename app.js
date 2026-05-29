@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     const clearCartBtn = document.getElementById('clear-cart-btn');
     const confirmClearBtn = document.getElementById('confirm-clear-btn');
+    const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
   
     // =====================================================
     // 3) Bootstrap components
@@ -161,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="text-muted" style="font-size:0.8rem">Clique no “-” para remover 1 unidade.</div>
         </div>
+        <hr/>
+        <button id="go-to-checkout" class="btn btn-primary w-100">Finalizar Compra</button>
       `;
     }
   
@@ -271,6 +274,17 @@ document.addEventListener('DOMContentLoaded', () => {
           // Exibir fallback de erro ou carregar JSON estático
         });
     }
+
+    function loadClientes() {
+      fetch('/api/clientes.php')
+          .then(r => r.json())
+          .then(clientes => {
+              const select = document.getElementById('select-cliente');
+              select.innerHTML = '<option value="">Selecione um cliente...</option>' + 
+                  clientes.map(c => `<option value="${c.id}">${c.nome}</option>`).join('');
+          })
+          .catch(() => alert('Erro ao carregar clientes. Verifique se está logado.'));
+    }
   
     // =====================================================
     // 8) Eventos (addEventListener)
@@ -366,6 +380,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
       });
     }
+
+    document.body.addEventListener('click', (e) => {
+      if (e.target.id === 'go-to-checkout') {
+          if (cartCount() === 0) return alert('Carrinho vazio!');
+          document.getElementById('checkout-total').textContent = formatPriceBRL(cartTotal());
+          loadClientes();
+          checkoutModal.show();
+      }
+    });
+
+    document.getElementById('btn-confirmar-pedido').addEventListener('click', () => {
+      const clienteId = document.getElementById('select-cliente').value;
+      if (!clienteId) return alert('Por favor, selecione um cliente.');
+  
+      const payload = {
+          cliente_id: clienteId,
+          total: cartTotal(),
+          items: cart.items
+      };
+  
+      fetch('/api/pedidos.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+      })
+      .then(r => r.json())
+      .then(res => {
+          if (res.error) throw new Error(res.error);
+          alert(res.message);
+          clearCart(); // Função existente que limpa LS e atualiza UI
+          checkoutModal.hide();
+      })
+      .catch(err => alert('Falha ao gravar pedido: ' + err.message));
+    });
   
     // =====================================================
     // 9) Promoção do dia (exemplo: switch)
