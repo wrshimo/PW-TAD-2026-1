@@ -67,13 +67,3 @@ class ProdutoBusiness {
         ];
     }
 }
-
-function require_fields(array $data, array $required): array {
-    $missing = [];
-    foreach ($required as $field) {
-        if (!isset($data[$field]) || trim($data[$field]) === '') {
-            $missing[] = $field;
-        }
-    }
-    return $missing;
-}
